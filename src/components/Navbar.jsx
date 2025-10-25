@@ -36,7 +36,7 @@ const Navbar = ({ scrolled }) => {
             className="flex items-center space-x-3 cursor-pointer"
           >
             <motion.img
-              src="/Global Visionary Minds Final Logo 2_page-0001.png"
+              src="/gvm.png"
               alt="Global Visionary Minds"
               className="w-12 h-12"
               animate={{
