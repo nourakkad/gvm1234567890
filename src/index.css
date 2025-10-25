@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-primary-50 via-accent-50 to-primary-50;
+  }
+  a {
+    color: theme('colors.primary.800');
+    text-decoration: none;
+  }
+  a:hover {
+    color: theme('colors.accent.600');
+  }
+  a:visited {
+    color: theme('colors.primary.800');
+  }
+  a:active {
+    color: theme('colors.gold.600');
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+  }
+  
+  .animate-gradient-x {
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+  }
+}
+
+/* Footer link color overrides to keep links light in dark footer */
+@layer base {
+  footer a {
+    color: theme('colors.primary.100');
+  }
+  footer a:visited {
+    color: theme('colors.primary.100');
+  }
+  footer a:hover {
+    color: theme('colors.accent.400');
+  }
+}
+
