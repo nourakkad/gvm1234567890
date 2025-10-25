@@ -30,6 +30,14 @@
     background-size: 200% 200%;
     animation: gradient 8s ease infinite;
   }
+
+  /* Clamp to 3 lines (used with fade to simulate ~2.5 lines) */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
 
 /* Footer link color overrides to keep links light in dark footer */

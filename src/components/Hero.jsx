@@ -1,14 +1,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, Heart, Sparkles, Zap } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 const Hero = () => {
-  const floatingIcons = [
-    { Icon: Heart, delay: 0, duration: 3 },
-    { Icon: Sparkles, delay: 0.5, duration: 4 },
-    { Icon: Zap, delay: 1, duration: 3.5 },
-  ]
-
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Animated Background Elements (kept subtle, no gradients) */}
@@ -109,38 +103,74 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Content - Floating Icons */}
+          {/* Right Content - Floating Media */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             className="relative h-[500px] hidden lg:block"
           >
-            {floatingIcons.map(({ Icon, delay, duration }, index) => (
-              <motion.div
-                key={index}
-                animate={{
-                  y: [0, -30, 0],
-                  x: [0, 20, 0],
-                  rotate: [0, 10, 0],
-                }}
-                transition={{
-                  duration,
-                  delay,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="absolute"
-                style={{
-                  top: `${index * 30}%`,
-                  left: `${index * 25}%`,
-                }}
-              >
-                <div className="w-32 h-32 bg-primary-500 rounded-3xl flex items-center justify-center shadow-2xl">
-                  <Icon className="w-16 h-16 text-white" />
-                </div>
-              </motion.div>
-            ))}
+            {/* Floating Image */}
+            <motion.img
+              src="/images/1.jpeg"
+              alt="Community impact collage"
+              animate={{
+                y: [0, -20, 0],
+                x: [0, 12, 0],
+                rotate: [0, 4, 0],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-auto rounded-3xl shadow-2xl border border-gold-300 z-10"
+            />
+            <motion.img
+              src="/images/2.jpeg"
+              alt="Community impact collage"
+              animate={{
+                y: [0, -16, 0],
+                x: [0, 8, 0],
+                rotate: [0, -3, 0],
+              }}
+              transition={{
+                duration: 7,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute top-10 left-8 w-56 h-auto rounded-3xl shadow-2xl border border-gold-300 z-10"
+            />
+            <motion.img
+              src="/images/3.jpeg"
+              alt="Community project moment"
+              animate={{
+                y: [0, -18, 0],
+                x: [0, -10, 0],
+                rotate: [0, 3, 0],
+              }}
+              transition={{
+                duration: 6.5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute bottom-10 left-24 w-64 h-auto rounded-3xl shadow-2xl border border-gold-300 z-10"
+            />
+            <motion.img
+              src="/images/4.jpeg"
+              alt="Community outreach snapshot"
+              animate={{
+                y: [0, -14, 0],
+                x: [0, 10, 0],
+                rotate: [0, -2, 0],
+              }}
+              transition={{
+                duration: 7.5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute top-16 right-10 w-52 h-auto rounded-3xl shadow-2xl border border-gold-300 z-10"
+            />
 
             {/* Central Glow */}
             <motion.div
@@ -153,7 +183,7 @@ const Hero = () => {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-primary-300/50 via-accent-300/50 to-gold-300/50 rounded-full blur-3xl"
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-primary-300/50 via-accent-300/50 to-gold-300/50 rounded-full blur-3xl -z-10"
             />
           </motion.div>
         </div>

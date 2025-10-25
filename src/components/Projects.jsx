@@ -1,39 +1,198 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Fish, Leaf, Car, Sprout } from 'lucide-react'
+import { Fish, Leaf, Car, Sprout, Users, Lightbulb, Smartphone, Coffee } from 'lucide-react'
 
 const Projects = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
+  const [expanded, setExpanded] = useState({})
+
+  const getImpactFromTitle = (title) => {
+    let hash = 0
+    for (let i = 0; i < title.length; i++) {
+      hash = ((hash << 5) - hash) + title.charCodeAt(i)
+      hash |= 0
+    }
+    return Math.abs(hash % 8) + 92
+  }
+
   const projects = [
     {
       icon: Fish,
       title: "Aqua Farms",
-      description: "Sustainable fish farming initiatives that provide food security and economic opportunities for local communities.",
-      gradient: "bg-primary-600",
-      image: "🐟"
+      description: `Urban aquariums that grow fish and fresh produce — a sustainable way to feed cities while conserving resources.
+
+Purpose
+Integrating aquaculture and hydroponics to deliver fresh, local food with minimal land and water use.
+
+Target Group
+Urban households, communities, restaurants, schools, and planners.
+
+Activities
+Closed-loop fish and vegetable farming, training workshops, and pilot projects with local partners.
+
+Outcomes & Impact
+Fresh, pesticide-free food, reduced waste, up to 90% water savings, stronger food security, and lower carbon footprint.
+
+Indicators
+Annual harvest volumes, water savings, community participation, and reduced transport emissions.`,
+      gradient: "bg-accent-600",
+      image: "/images/aqua-farms.jpeg"
     },
     {
       icon: Leaf,
       title: "Biogas Solutions",
-      description: "Converting organic waste into clean energy, reducing environmental impact while creating sustainable power sources.",
+      description: `Transforming everyday organic waste into clean energy — bringing light, warmth, and dignity to rural communities.
+
+Purpose
+To provide affordable, renewable energy in villages while reducing dependence on firewood and fossil fuels.
+
+Target Group
+Rural households, farmers, and community institutions.
+
+Activities
+Installing biogas plants, training communities in waste-to-energy systems, and maintaining decentralized units.
+
+Outcomes & Impact
+Clean cooking fuel, reduced indoor pollution, lower deforestation, and improved quality of life through sustainable energy access.
+
+Indicators
+Number of biogas units installed, households served, energy generated, and reduction in firewood use and emissions.`,
       gradient: "bg-accent-600",
-      image: "🌱"
+      image: "/images/biogas.jpeg"
     },
     {
       icon: Car,
       title: "Women-Only Taxis",
-      description: "Safe, reliable transportation services operated by and for women, promoting safety and economic empowerment.",
+      description: `A transport service driven by women, for women — ensuring safe, reliable travel while creating jobs and independence for female drivers.
+
+Purpose
+To enhance women’s safety in urban transport while promoting economic empowerment and financial security for female drivers.
+
+Target Group
+Women commuters, working professionals, students, and families seeking trusted mobility options.
+
+Activities
+Recruiting and training women drivers, operating dedicated ride services, and partnering with local authorities and organizations.
+
+Outcomes & Impact
+Safe and reliable transport for women, new income opportunities for female drivers, greater confidence in city mobility, and stronger community trust.
+
+Indicators
+Number of women drivers employed, rides completed safely, passenger satisfaction, and income generated for drivers.`,
+      gradient: "bg-primary-600",
+      image: "/images/women-only-taxis.jpeg"
+    },
+    {
+      icon: Users,
+      title: "Inclusive Employment ",
+      description: `Projects rooted in local culture that create meaningful jobs for people with disabilities while preserving heritage.
+
+Purpose
+To empower people with disabilities through dignified, skill-based employment that also sustains traditional crafts.
+
+Target Group
+Individuals with disabilities, artisan communities, and local cultural enterprises.
+
+Activities
+Training in heritage-based crafts, developing inclusive workplaces, and building market access for products.
+
+Outcomes & Impact
+Increased income and independence for people with disabilities, preservation of cultural skills, and stronger social inclusion.
+
+Indicators
+Number of people employed, crafts sustained, income generated, and participation in cultural projects.`,
       gradient: "bg-gold-600",
-      image: "🚖"
+      image: "/images/inclusive-employment.jpeg"
+    },
+    {
+      icon: Lightbulb,
+      title: "Innovation Hub",
+      description: `A vibrant learning space for young changemakers to develop skills, launch ideas, and shape a more inclusive future.
+
+Purpose
+To nurture creativity, leadership, and problem-solving among youth, equipping them to address social and environmental challenges.
+
+Target Group
+Students, young professionals, and early-stage entrepreneurs.
+
+Activities
+Workshops, mentorship programs, incubating start-ups, and hosting innovation challenges.
+
+Outcomes & Impact
+Stronger entrepreneurial skills, new community-driven solutions, and increased participation of youth in shaping sustainable futures.
+
+Indicators
+Number of participants engaged, ideas incubated, ventures launched, and partnerships created.`,
+      gradient: "bg-primary-600",
+      image: "/images/innovation-hub.jpeg"
+    },
+    {
+      icon: Smartphone,
+      title: "MyVoice App",
+      description: `A simple yet powerful mobile tool helping grassroots leaders track impact, gather feedback, and share their stories with the world.
+
+Purpose
+To amplify grassroots voices by providing accessible digital tools for monitoring progress, documenting impact, and storytelling.
+
+Target Group
+Community leaders, local NGOs, and social entrepreneurs.
+
+Activities
+App-based data collection, impact dashboards, training in digital literacy, and sharing stories on wider platforms.
+
+Outcomes & Impact
+Improved transparency, stronger community engagement, and greater visibility for local change-makers.
+
+Indicators
+Active users onboarded, feedback collected, stories shared, and measurable impact tracked.`,
+      gradient: "bg-primary-600",
+      image: "/images/myvoice-app.jpeg"
     },
     {
       icon: Sprout,
-      title: "Culture Preservation",
-      description: "Protecting and celebrating local heritage through community-led initiatives that honor tradition while embracing innovation.",
-      gradient: "bg-primary-600",
-      image: "🎭"
+      title: "Green Rooftops For All",
+      description: `Turning underused rooftops into lush gardens — cleaning the air, growing food, and bringing communities closer.
+
+Purpose
+To transform idle urban spaces into productive green areas that improve air quality, support food security, and build community bonds.
+
+Target Group
+Urban households, residential societies, schools, and city planners.
+
+Activities
+Installing rooftop gardens, training residents in urban farming, and organizing community gardening programs.
+
+Outcomes & Impact
+Fresher air, local food production, cooler buildings, and stronger neighborhood connections.
+
+Indicators
+Number of rooftops converted, food grown, households engaged, and improvements in local air quality and temperature.`,
+      gradient: "bg-accent-600",
+      image: "/images/green-rooftops.jpeg"
+    },
+    {
+      icon: Coffee,
+      title: "Lady Cafe",
+      description: `A welcoming café designed exclusively for women — a safe, supportive space to gather, work, and collaborate.
+
+Purpose
+To create a women-only hub that blends hospitality with empowerment, encouraging connection, creativity, and entrepreneurship.
+
+Target Group
+Women professionals, students, entrepreneurs, and community groups.
+
+Activities
+Running a café with co-working facilities, hosting networking sessions, skill-building workshops, and community events.
+
+Outcomes & Impact
+Stronger peer networks, new opportunities for collaboration, enhanced confidence, and a nurturing space for women’s ideas to grow.
+
+Indicators
+Footfall and membership, number of events hosted, collaborations initiated, and participant feedback.`,
+      gradient: "bg-gold-600",
+      image: "/images/lady-cafe.jpeg"
     }
   ]
 
@@ -91,23 +250,18 @@ const Projects = () => {
               />
 
               <div className="relative bg-white rounded-3xl overflow-hidden shadow-xl">
-                {/* Image Section with Emoji */}
-                <div className={`relative h-48 ${project.gradient} flex items-center justify-center overflow-hidden`}>
-                  <motion.div
-                    animate={{
-                      scale: [1, 1.2, 1],
-                      rotate: [0, 10, -10, 0],
-                    }}
-                    transition={{
-                      duration: 5,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                    className="text-8xl"
-                  >
-                    {project.image}
-                  </motion.div>
-                  
+                {/* Image Section */}
+                <div className={`relative h-64 md:h-72 lg:h-80 ${project.gradient} overflow-hidden`}>
+                  <motion.img
+                    src={project.image}
+                    alt={project.title}
+                    initial={{ scale: 1.05 }}
+                    animate={{ scale: [1.05, 1, 1.05] }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/20" />
+
                   {/* Floating particles */}
                   <motion.div
                     animate={{
@@ -148,7 +302,19 @@ const Projects = () => {
                     </motion.div>
                     <h3 className="text-2xl font-bold text-primary-800"><span className="border-b-4 border-gold-500 pb-1">{project.title}</span></h3>
                   </div>
-                  <p className="text-primary-700 leading-relaxed">{project.description}</p>
+                  <div className="relative">
+                    <p className={`text-primary-700 leading-relaxed whitespace-pre-line ${expanded[index] ? '' : 'line-clamp-3'}`}>{project.description}</p>
+                    {!expanded[index] && (
+                      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-white to-transparent" />
+                    )}
+                  </div>
+                  <button
+                    onClick={() => setExpanded(prev => ({ ...prev, [index]: !prev[index] }))}
+                    aria-expanded={!!expanded[index]}
+                    className="mt-3 text-primary-700 font-semibold hover:text-accent-600"
+                  >
+                    {expanded[index] ? 'Read less' : 'Read more'}
+                  </button>
                   
                   {/* Progress indicator animation */}
                   <div className="mt-6">
@@ -158,13 +324,13 @@ const Projects = () => {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                       >
-                        {85 + index * 5}%
+                        {getImpactFromTitle(project.title)}%
                       </motion.span>
                     </div>
                     <div className="h-2 bg-primary-100 rounded-full overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
-                        whileInView={{ width: `${85 + index * 5}%` }}
+                        whileInView={{ width: `${getImpactFromTitle(project.title)}%` }}
                         transition={{ duration: 1.5, delay: 0.5 }}
                         className={`h-full ${project.gradient}`}
                       />
