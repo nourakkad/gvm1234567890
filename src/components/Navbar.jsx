@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Sparkles } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { Menu, X } from 'lucide-react'
 
 const Navbar = ({ scrolled }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -87,55 +87,55 @@ const Navbar = ({ scrolled }) => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              key="backdrop"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/30 md:hidden"
-            />
+      {/* Mobile Menu as popup card (no animations) */}
+      {isOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            onClick={() => setIsOpen(false)}
+            className="fixed inset-0 bg-black/40 md:hidden"
+          />
 
-            {/* Panel */}
-            <motion.div
-              key="panel"
-              initial={{ opacity: 0, y: -12, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -12, scale: 0.98 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-              className="fixed left-0 right-0 top-20 md:hidden bg-white/95 backdrop-blur-lg shadow-xl border-t border-primary-100"
-              id="mobile-menu"
-              role="menu"
-              aria-label="Mobile navigation"
-            >
-              <div className="px-4 pt-2 pb-4 space-y-2">
-                {menuItems.map((item, index) => (
-                  <motion.a
-                    key={item}
-                    href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.06 }}
+          {/* Centered Card */}
+          <div
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation"
+            className="fixed inset-0 md:hidden flex items-start justify-center pt-28 px-4"
+          >
+            <div className="w-full max-w-sm rounded-2xl shadow-2xl border border-primary-100 overflow-hidden">
+              <div className="bg-gradient-to-br from-primary-50 via-accent-50 to-primary-50 backdrop-blur-xl">
+                <div className="flex items-center justify-between px-5 py-4 border-b border-primary-100">
+                  <span className="text-primary-800 font-semibold">Menu</span>
+                  <button
                     onClick={() => setIsOpen(false)}
-                    whileHover={{ scale: 1.05, color: '#0ea5e9' }}
-                    className="block px-4 py-3 rounded-lg transition-colors font-medium relative group text-primary-800 hover:text-primary-600"
+                    aria-label="Close menu"
+                    className="p-2 rounded-lg text-primary-700 hover:bg-primary-100"
                   >
-                    {item}
-                    <motion.span
-                      className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold-300 group-hover:w-full transition-all duration-300"
-                    />
-                  </motion.a>
-                ))}
+                    <X />
+                  </button>
+                </div>
+                <nav className="p-3">
+                  <ul className="space-y-2">
+                    {menuItems.map((item) => (
+                      <li key={item}>
+                        <a
+                          href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
+                          onClick={() => setIsOpen(false)}
+                          className="block w-full text-left px-5 py-4 rounded-xl bg-white/70 hover:bg-white text-primary-800 font-medium border border-primary-100"
+                        >
+                          {item}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
               </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+            </div>
+          </div>
+        </>
+      )}
     </motion.nav>
   )
 }

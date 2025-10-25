@@ -108,8 +108,43 @@ const Hero = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative h-[500px] hidden lg:block"
           >
+            {/* Mobile layout: 1 large image on top, 3 below */}
+            <div className="sm:hidden w-full">
+              <motion.img
+                src="/images/1.jpeg"
+                alt="Community impact collage"
+                animate={{ y: [0, -8, 0], rotate: [0, 1.5, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="w-full h-48 object-cover rounded-2xl shadow-2xl border border-gold-300"
+              />
+              <div className="grid grid-cols-3 gap-2 mt-2">
+                <motion.img
+                  src="/images/2.jpeg"
+                  alt="Community impact"
+                  animate={{ y: [0, -6, 0], x: [0, 4, 0], rotate: [0, -1.5, 0] }}
+                  transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
+                  className="w-full h-24 object-cover rounded-xl shadow-xl border border-gold-300"
+                />
+                <motion.img
+                  src="/images/3.jpeg"
+                  alt="Community project"
+                  animate={{ y: [0, -7, 0], rotate: [0, 1, 0] }}
+                  transition={{ duration: 6.2, repeat: Infinity, ease: "easeInOut" }}
+                  className="w-full h-24 object-cover rounded-xl shadow-xl border border-gold-300"
+                />
+                <motion.img
+                  src="/images/4.jpeg"
+                  alt="Community outreach"
+                  animate={{ y: [0, -5, 0], x: [0, -3, 0], rotate: [0, -1, 0] }}
+                  transition={{ duration: 6.8, repeat: Infinity, ease: "easeInOut" }}
+                  className="w-full h-24 object-cover rounded-xl shadow-xl border border-gold-300"
+                />
+              </div>
+            </div>
+
+            {/* Tablet/Desktop layout: floating collage */}
+            <div className="hidden sm:block relative h-96 md:h-[420px] lg:h-[500px]">
             {/* Floating Image */}
             <motion.img
               src="/images/1.jpeg"
@@ -124,7 +159,7 @@ const Hero = () => {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-auto rounded-3xl shadow-2xl border border-gold-300 z-10"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 sm:w-72 md:w-80 h-auto rounded-3xl shadow-2xl border border-gold-300 z-10"
             />
             <motion.img
               src="/images/2.jpeg"
@@ -139,7 +174,7 @@ const Hero = () => {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="absolute top-10 left-8 w-56 h-auto rounded-3xl shadow-2xl border border-gold-300 z-10"
+              className="absolute top-10 left-8 w-40 sm:w-48 md:w-56 h-auto rounded-3xl shadow-2xl border border-gold-300 z-10"
             />
             <motion.img
               src="/images/3.jpeg"
@@ -154,7 +189,7 @@ const Hero = () => {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="absolute bottom-10 left-24 w-64 h-auto rounded-3xl shadow-2xl border border-gold-300 z-10"
+              className="absolute bottom-10 left-24 w-48 sm:w-56 md:w-64 h-auto rounded-3xl shadow-2xl border border-gold-300 z-10"
             />
             <motion.img
               src="/images/4.jpeg"
@@ -169,7 +204,7 @@ const Hero = () => {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="absolute top-16 right-10 w-52 h-auto rounded-3xl shadow-2xl border border-gold-300 z-10"
+              className="absolute top-16 right-10 w-40 sm:w-48 md:w-52 h-auto rounded-3xl shadow-2xl border border-gold-300 z-10"
             />
 
             {/* Central Glow */}
@@ -185,36 +220,14 @@ const Hero = () => {
               }}
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-primary-300/50 via-accent-300/50 to-gold-300/50 rounded-full blur-3xl -z-10"
             />
+            </div>
           </motion.div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
-        animate={{
-          y: [0, 10, 0],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <div className="w-6 h-10 border-2 border-primary-600 rounded-full flex justify-center pt-2">
-          <motion.div
-            animate={{
-              y: [0, 12, 0],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="w-1.5 h-1.5 bg-primary-600 rounded-full"
-          />
-        </div>
-      </motion.div>
+    
+    
     </section>
   )
 }
