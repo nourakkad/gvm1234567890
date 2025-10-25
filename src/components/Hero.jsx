@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react'
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 scroll-mt-24">
       {/* Animated Background Elements (kept subtle, no gradients) */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div

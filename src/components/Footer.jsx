@@ -141,11 +141,11 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="inline-block"
           >
-            <img
+              <img
               src="/ELYPTEK.png"
               alt="ELY PTEK"
-              className="h-50 md:h-12 object-contain"
-            />
+              className="h-[50px] md:h-12 object-contain"
+              />
           </motion.a>
         </div>
       </div>

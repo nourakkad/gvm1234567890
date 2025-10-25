@@ -38,7 +38,7 @@ const Services = () => {
   ]
 
   return (
-    <section id="our-work" ref={ref} className="py-14 md:py-20 px-4 sm:px-6 lg:px-8 relative">
+    <section id="our-work" ref={ref} className="py-14 md:py-20 px-4 sm:px-6 lg:px-8 relative scroll-mt-24">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0" style={{

@@ -197,7 +197,7 @@ Footfall and membership, number of events hosted, collaborations initiated, and 
   ]
 
   return (
-    <section id="impact" ref={ref} className="py-14 md:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section id="impact" ref={ref} className="py-14 md:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden scroll-mt-24">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-primary-50" />
 

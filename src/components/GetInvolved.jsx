@@ -35,7 +35,7 @@ const GetInvolved = () => {
   ]
 
   return (
-    <section id="donate" ref={ref} className="py-14 md:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section id="donate" ref={ref} className="py-14 md:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden scroll-mt-24">
       {/* Animated background */}
       <div className="absolute inset-0">
         <motion.div

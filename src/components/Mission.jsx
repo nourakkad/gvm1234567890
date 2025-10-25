@@ -36,7 +36,7 @@ const Mission = () => {
   ]
 
   return (
-    <section id="about" ref={ref} className="py-14 md:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section id="about" ref={ref} className="py-14 md:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden scroll-mt-24">
       {/* Background decoration */}
       <div className="absolute inset-0" />
       
