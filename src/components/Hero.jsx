@@ -116,7 +116,7 @@ const Hero = () => {
                 alt="Community impact collage"
                 animate={{ y: [0, -8, 0], rotate: [0, 1.5, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full h-48 object-cover rounded-2xl shadow-2xl border border-gold-300"
+                className="w-full h-64 object-cover rounded-2xl shadow-2xl border border-gold-300"
               />
               <div className="grid grid-cols-3 gap-2 mt-2">
                 <motion.img
