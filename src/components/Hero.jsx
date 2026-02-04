@@ -1,233 +1,91 @@
 import React from 'react'
-import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 scroll-mt-24">
-      {/* Animated Background Elements (kept subtle, no gradients) */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 90, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          className="absolute top-20 left-10 w-72 h-72 bg-primary-200/30 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{
-            scale: [1.2, 1, 1.2],
-            rotate: [90, 0, 90],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          className="absolute bottom-20 right-10 w-96 h-96 bg-accent-200/30 rounded-full blur-3xl"
-        />
+    <section
+      id="home"
+      className="relative overflow-hidden pt-24 md:pt-28 scroll-mt-24"
+      aria-label="Home"
+    >
+      {/* Subtle brand background (static, not distracting) */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-24 -left-20 h-72 w-72 rounded-full bg-primary-200/30 blur-3xl" />
+        <div className="absolute -bottom-24 -right-20 h-96 w-96 rounded-full bg-accent-200/25 blur-3xl" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-8"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-block"
-            >
-              <span className="px-4 py-2 rounded-full bg-primary-100 text-primary-700 text-sm font-semibold border border-gold-300 shadow-sm">
-                <span className="text-gold-500 mr-2" aria-hidden="true">★★★★★</span>
-                <span className="align-middle">Rated 5 Stars by Supporters</span>
-              </span>
-            </motion.div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+        {/* Top row */}
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+          <div className="space-y-7">
 
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight"
-            >
-              <span className="text-primary-700">Empowering</span>
-              <br />
-              <span className="text-primary-700">Change</span>
-              <br />
-              <span className="text-primary-700">Through Community</span>
-            </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="text-base md:text-xl text-primary-700 leading-relaxed"
-            >
-              We don't just hand you the funds and walk away. We partner with you, 
-              coach you, and walk the path together. From day one, we're in your corner—offering 
-              support, practical advice, and room to grow. <span className="font-semibold text-gold-600">Think of us as your co-pilot.</span>
-            </motion.p>
+            <h1 className="mt-11 text-primary-900 text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">
+              Big change starts with small, brave steps.
+            </h1>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="flex flex-wrap gap-3 md:gap-4"
-            >
-              <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(14, 165, 233, 0.3)" }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 md:px-8 md:py-4 bg-primary-700 text-white rounded-full font-semibold text-sm md:text-base flex items-center space-x-2 shadow-lg border border-gold-300 transition-all duration-300 hover:ring-2 hover:ring-gold-300"
-              >
-                <span>Reach Out</span>
-                <ArrowRight className="w-5 h-5 text-gold-300" />
-              </motion.button>
+            <div className="space-y-6 text-primary-800 text-base md:text-lg leading-relaxed max-w-prose">
+              <p>
+                Global Visionary Minds (GVM) is a young initiative born from a
+                simple belief: meaningful change often begins quietly, with
+                people who know their communities well and care deeply about
+                them.
+              </p>
 
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 md:px-8 md:py-4 bg-white text-primary-700 rounded-full font-semibold text-sm md:text-base border border-gold-300 shadow-lg shadow-gold-300/50 hover:ring-2 hover:ring-gold-300 transition-colors"
-              >
-                Learn More
-              </motion.button>
-            </motion.div>
-          </motion.div>
+              <p>
+                We exist to support early-stage ideas that come from the ground
+                up. Ideas that may still be taking shape. Ideas that may not yet
+                have funding, a full plan, or the right connections, but have
+                something essential: purpose.
+              </p>
 
-          {/* Right Content - Floating Media */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            {/* Mobile layout: 1 large image on top, 3 below */}
-            <div className="sm:hidden w-full">
-              <motion.img
-                src="/images/1.jpeg"
-                alt="Community impact collage"
-                animate={{ y: [0, -8, 0], rotate: [0, 1.5, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full h-64 object-cover rounded-2xl shadow-2xl border border-gold-300"
+              <p>
+                GVM operates from the Middle East and is registered in Lebanon.
+                From here, we work with individuals, informal groups,
+                grassroots organizations, and small NGOs who want to turn ideas
+                into action in thoughtful, realistic ways.
+              </p>
+            </div>
+          </div>
+
+          <div className="w-full">
+            <div className="w-full max-w-md lg:max-w-none mx-auto rounded-3xl bg-white/60 backdrop-blur border border-gold-300 shadow-2xl overflow-hidden">
+              <img
+                // TODO: replace with the approved Section 1 right-side image file
+                // Using an existing image so the page doesn't break.
+                src="/images/home-values.jpeg"
+                alt="GVM values"
+                className="w-full aspect-[4/5] object-cover"
+                loading="eager"
               />
-              <div className="grid grid-cols-3 gap-2 mt-2">
-                <motion.img
-                  src="/images/2.jpeg"
-                  alt="Community impact"
-                  animate={{ y: [0, -6, 0], x: [0, 4, 0], rotate: [0, -1.5, 0] }}
-                  transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-full h-24 object-cover rounded-xl shadow-xl border border-gold-300"
-                />
-                <motion.img
-                  src="/images/3.jpeg"
-                  alt="Community project"
-                  animate={{ y: [0, -7, 0], rotate: [0, 1, 0] }}
-                  transition={{ duration: 6.2, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-full h-24 object-cover rounded-xl shadow-xl border border-gold-300"
-                />
-                <motion.img
-                  src="/images/4.jpeg"
-                  alt="Community outreach"
-                  animate={{ y: [0, -5, 0], x: [0, -3, 0], rotate: [0, -1, 0] }}
-                  transition={{ duration: 6.8, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-full h-24 object-cover rounded-xl shadow-xl border border-gold-300"
-                />
-              </div>
             </div>
+          </div>
+        </div>
 
-            {/* Tablet/Desktop layout: floating collage */}
-            <div className="hidden sm:block relative h-96 md:h-[420px] lg:h-[500px]">
-            {/* Floating Image */}
-            <motion.img
-              src="/images/1.jpeg"
-              alt="Community impact collage"
-              animate={{
-                y: [0, -20, 0],
-                x: [0, 12, 0],
-                rotate: [0, 4, 0],
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 sm:w-72 md:w-80 h-auto rounded-3xl shadow-2xl border border-gold-300 z-10"
-            />
-            <motion.img
-              src="/images/2.jpeg"
-              alt="Community impact collage"
-              animate={{
-                y: [0, -16, 0],
-                x: [0, 8, 0],
-                rotate: [0, -3, 0],
-              }}
-              transition={{
-                duration: 7,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="absolute top-10 left-8 w-40 sm:w-48 md:w-56 h-auto rounded-3xl shadow-2xl border border-gold-300 z-10"
-            />
-            <motion.img
-              src="/images/3.jpeg"
-              alt="Community project moment"
-              animate={{
-                y: [0, -18, 0],
-                x: [0, -10, 0],
-                rotate: [0, 3, 0],
-              }}
-              transition={{
-                duration: 6.5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="absolute bottom-10 left-24 w-48 sm:w-56 md:w-64 h-auto rounded-3xl shadow-2xl border border-gold-300 z-10"
-            />
-            <motion.img
-              src="/images/4.jpeg"
-              alt="Community outreach snapshot"
-              animate={{
-                y: [0, -14, 0],
-                x: [0, 10, 0],
-                rotate: [0, -2, 0],
-              }}
-              transition={{
-                duration: 7.5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="absolute top-16 right-10 w-40 sm:w-48 md:w-52 h-auto rounded-3xl shadow-2xl border border-gold-300 z-10"
-            />
-
-            {/* Central Glow */}
-            <motion.div
-              animate={{
-                scale: [1, 1.1, 1],
-                opacity: [0.5, 0.8, 0.5],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-primary-300/50 via-accent-300/50 to-gold-300/50 rounded-full blur-3xl -z-10"
-            />
+        {/* Bottom row */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-start mt-12 md:mt-16">
+          <div className="w-full">
+            <div className="rounded-3xl bg-white/60 backdrop-blur border border-gold-300 shadow-2xl overflow-hidden">
+              <img
+                // TODO: replace with the approved Section 1 bottom image file
+                // Using an existing image so the page doesn't break.
+                src="/images/home-city.jpeg"
+                alt="City skyline at sunset"
+                className="w-full h-64 sm:h-80 md:h-96 object-cover"
+                loading="lazy"
+              />
             </div>
-          </motion.div>
+          </div>
+
+          <div className="lg:pt-6">
+            <div className="rounded-3xl bg-white/70 backdrop-blur border border-primary-100 shadow-xl p-6 md:p-8">
+              <p className="text-primary-900 text-lg md:text-2xl leading-relaxed">
+                We are at the beginning of our journey. We are listening, building,
+                and opening space for ideas that deserve time and attention.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-    
-    
     </section>
   )
 }

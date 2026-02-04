@@ -16,7 +16,14 @@ const Navbar = ({ scrolled }) => {
     }
   }, [isOpen])
 
-  const menuItems = ['Home', 'About', 'Our Work', 'Impact', 'Donate', 'Submit A Proposal']
+  const menuItems = [
+    { label: 'Home', href: '#home' },
+    { label: 'About', href: '#about' },
+    { label: 'Our Work', href: '#our-work' },
+    { label: 'Impact', href: '#impact' },
+    { label: 'Contact', href: '#contact' },
+    { label: 'Submit A Proposal', href: '#submit-a-proposal' },
+  ]
 
   return (
     <motion.nav
@@ -31,41 +38,30 @@ const Navbar = ({ scrolled }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-3 cursor-pointer"
-          >
-            <motion.img
+          <div className="flex items-center gap-3 select-none">
+            <img
               src="/gvm.png"
               alt="Global Visionary Minds"
-              className="w-12 h-12"
-              animate={{
-                rotate: [0, 360],
-              }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: "linear"
-              }}
+              className="w-14 h-14 md:w-16 md:h-16 object-contain shrink-0"
             />
             <span className="text-xl md:text-2xl font-bold text-primary-700">
               Global Visionary Minds
             </span>
-          </motion.div>
+          </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
             {menuItems.map((item, index) => (
               <motion.a
-                key={item}
-                href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
+                key={item.href}
+                href={item.href}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.1, color: '#0ea5e9' }}
                 className="text-primary-800 hover:text-primary-600 transition-colors font-medium relative group"
               >
-                {item}
+                {item.label}
                 <motion.span
                   className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold-300 group-hover:w-full transition-all duration-300"
                 />
@@ -119,13 +115,13 @@ const Navbar = ({ scrolled }) => {
                 <nav className="p-3">
                   <ul className="space-y-2">
                     {menuItems.map((item) => (
-                      <li key={item}>
+                      <li key={item.href}>
                         <a
-                          href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
+                          href={item.href}
                           onClick={() => setIsOpen(false)}
                           className="block w-full text-left px-5 py-4 rounded-xl bg-white/70 hover:bg-white text-primary-800 font-medium border border-primary-100"
                         >
-                          {item}
+                          {item.label}
                         </a>
                       </li>
                     ))}

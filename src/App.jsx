@@ -5,6 +5,9 @@ import Mission from './components/Mission'
 import Services from './components/Services'
 import Projects from './components/Projects'
 import Testimonial from './components/Testimonial'
+import Offer from './components/Offer'
+import SubmitProposal from './components/SubmitProposal'
+import DonorsPartners from './components/DonorsPartners'
 import GetInvolved from './components/GetInvolved'
 import Footer from './components/Footer'
 
@@ -27,6 +30,9 @@ function App() {
       <Services />
       <Projects />
       <Testimonial />
+      <Offer />      
+      <SubmitProposal />
+      <DonorsPartners />
       <GetInvolved />
       <Footer />
     </div>

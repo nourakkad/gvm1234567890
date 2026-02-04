@@ -1,134 +1,112 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Quote, Star } from 'lucide-react'
 
 const Testimonial = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
-  return (
-    <section ref={ref} className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Animated background waves */}
-      <motion.div
-        animate={{
-          x: [0, 100, 0],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-        className="absolute top-0 left-0 w-full h-full opacity-10"
-      >
-        <svg className="w-full h-full" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,300 Q300,200 600,300 T1200,300 L1200,600 L0,600 Z" fill="url(#gradient1)" />
-          <defs>
-            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#0e3ab9" />
-              <stop offset="50%" stopColor="#15c969" />
-              <stop offset="100%" stopColor="#f2b01e" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </motion.div>
+  const bullets = [
+    {
+      lead: 'Clarifying the problem and the community need,',
+      rest: 'making sure the idea responds to a real situation and is shaped by local voices',
+    },
+    {
+      lead: 'Shaping a realistic plan and timeline,',
+      rest: 'grounded in what is actually possible with the resources, people, and context available',
+    },
+    {
+      lead: 'Identifying risks and constraints early,',
+      rest: 'so challenges are acknowledged from the start and managed, not discovered too late.',
+    },
+    {
+      lead: 'Defining what success would look like,',
+      rest: 'in practical and measurable terms, agreed together from the beginning',
+    },
+    {
+      lead: 'Supporting access to funding or partnerships,',
+      rest: 'when possible, by helping refine proposals and connect ideas with the right opportunities.',
+    },
+  ]
 
-      <div className="max-w-4xl mx-auto relative">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.8 }}
-          className="relative"
-        >
-          {/* Large quote icon */}
+  return (
+    <section
+      id="how-we-work"
+      ref={ref}
+      className="py-14 md:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden scroll-mt-24"
+      aria-label="How we work"
+    >
+      {/* Subtle brand background (static) */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-24 -left-20 h-72 w-72 rounded-full bg-primary-200/25 blur-3xl" />
+        <div className="absolute -bottom-24 -right-20 h-96 w-96 rounded-full bg-accent-200/20 blur-3xl" />
+      </div>
+
+      <div className="max-w-7xl mx-auto relative">
+        {/* Top row: heading + intro + bullets */}
+        <div className="grid lg:grid-cols-12 gap-8 md:gap-10 items-start">
           <motion.div
-            animate={{
-              rotate: [0, 5, -5, 0],
-              scale: [1, 1.05, 1],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute -top-8 -left-8 opacity-20"
+            initial={{ opacity: 0, y: 18 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7"
           >
-            <Quote className="w-32 h-32 text-primary-600" />
+            
+            <h2 className="text-4xl md:text-5xl font-bold text-primary-700 mb-5">
+              How We Work
+            </h2>
+
+            <p className="text-primary-800 font-semibold mb-4">
+              We see our role as a partner, not a distant funder.
+            </p>
+            <p className="text-primary-700 leading-relaxed">
+              When we support an idea, we work step by step and stay closely involved. Our approach includes:
+            </p>
+
+            <ul className="mt-6 list-disc pl-6 space-y-3 text-primary-800">
+              {bullets.map((b) => (
+                <li key={b.lead} className="marker:text-primary-700">
+                  <span className="font-bold">{b.lead}</span> {b.rest}
+                </li>
+              ))}
+            </ul>
+            
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.15, duration: 0.6 }}
+            className="lg:col-span-5"
+          >
+            <div className="mt-8 sm:mt-10 lg:mt-20 rounded-3xl bg-white/80 backdrop-blur-sm border border-gold-300 shadow-2xl overflow-hidden">
+              <img
+                // TODO: replace with the approved image for this section
+                src="/images/innovation-hub.jpeg"
+                alt="How we work"
+                className="w-full h-64 sm:h-80 lg:h-[320px] object-cover"
+                loading="lazy"
+              />
+            </div>
           </motion.div>
 
-          <div className="relative bg-white/80 backdrop-blur-lg rounded-3xl p-12 shadow-2xl border border-primary-100">
-            {/* Stars */}
-            <div className="flex justify-center mb-6">
-              {[...Array(5)].map((_, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ delay: index * 0.1, duration: 0.3 }}
-                  whileHover={{ 
-                    scale: 1.3,
-                    rotate: 360,
-                    transition: { duration: 0.5 }
-                  }}
-                >
-                  <Star className="w-8 h-8 fill-gold-500 text-gold-500 mx-1" />
-                </motion.div>
-              ))}
-            </div>
+          {/* Empty space on the right (keeps the same “air” as the screenshot on desktop) */}
+                    
+        </div>
 
-            {/* Testimonial text */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.6 }}
-              className="text-2xl md:text-3xl text-primary-800 text-center font-medium leading-relaxed mb-8 italic"
-            >
-              "Global Visionary Minds transformed our community with innovative projects. 
-              Their dedication to grassroots change is inspiring, and the impact is truly 
-              felt by everyone involved."
-            </motion.p>
+        {/* Bottom row: closing paragraph + image */}
+        <div className="grid lg:grid-cols-12 gap-8 md:gap-10 items-start mt-10 md:mt-12">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.1, duration: 0.6 }}
+            className="lg:col-span-7"
+          >
+            <p className="text-primary-700 leading-relaxed max-w-prose">
+              Once funding is secured, our role doesn’t stop. We continue to provide follow-up and light-touch support, staying in contact as the idea moves into implementation, helping address challenges, reflect on progress, and adjust when needed.
+            </p>
+          </motion.div>
 
-            {/* Author */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.8 }}
-              className="flex items-center justify-center space-x-4"
-            >
-            <div className="w-16 h-16 bg-gold-600 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg">
-                SM
-              </div>
-              <div>
-                <p className="font-bold text-xl text-primary-800">Sarah M.</p>
-                <p className="text-primary-700">Community Leader</p>
-              </div>
-            </motion.div>
-
-            {/* Decorative elements */}
-            <motion.div
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.5, 0.8, 0.5],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-              }}
-            className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent-200 rounded-full blur-2xl"
-            />
-            <motion.div
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.5, 0.8, 0.5],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                delay: 1.5,
-              }}
-            className="absolute -top-4 -right-4 w-24 h-24 bg-primary-200 rounded-full blur-2xl"
-            />
-          </div>
-        </motion.div>
+          
+        </div>
       </div>
     </section>
   )

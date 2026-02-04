@@ -1,40 +1,28 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { DollarSign, Users, BookOpen, Handshake } from 'lucide-react'
+import { CheckCircle2 } from 'lucide-react'
 
 const Services = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
-  const services = [
+  const points = [
     {
-      icon: DollarSign,
-      title: "Small-Scale Funding",
-      description: "We give small but powerful boosts to people and projects with big heart. Financial support that makes a real difference.",
-      color: "bg-primary-600",
-      delay: 0
+      title: 'We start early.',
+      body: 'We work with ideas before they are polished or packaged, when guidance matters most.',
     },
     {
-      icon: Users,
-      title: "One-on-One Coaching",
-      description: "Personal guidance from experienced mentors who understand your challenges and celebrate your wins.",
-      color: "bg-accent-600",
-      delay: 0.2
+      title: 'We stay honest.',
+      body: "We don’t claim impact before it exists. We build it step by step.",
     },
     {
-      icon: BookOpen,
-      title: "Technical Guidance",
-      description: "Expert advice and practical tools to help you navigate challenges and implement your vision effectively.",
-      color: "bg-gold-600",
-      delay: 0.4
+      title: 'We stay close.',
+      body: 'Decisions are shaped by local context, not distant assumptions.',
     },
     {
-      icon: Handshake,
-      title: "Partnership Support",
-      description: "We don't just provide financial support; we walk the journey with you every step of the way.",
-      color: "bg-primary-600",
-      delay: 0.6
-    }
+      title: 'We value transparency.',
+      body: 'We are clear about what we fund, how decisions are made, and what we learn along the way.',
+    },
   ]
 
   return (
@@ -59,78 +47,60 @@ const Services = () => {
             className="inline-block px-6 py-2 bg-primary-700 rounded-full text-white font-semibold mb-4 border border-gold-300 shadow-sm"
           >
             <span className="text-gold-500 mr-2" aria-hidden="true">★</span>
-            Our Services
+            Our Approach
           </motion.span>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary-700">
-            How We
-            <br />
-            Support
-            <br />
-            You
+            What Makes Us Different
           </h2>
           <p className="text-xl text-primary-700 max-w-3xl mx-auto">
-            Whether you're a community leader, a grassroots group, or someone with an idea that can make a difference—we're here to help.
+            There are many organizations supporting social change. This is how we try to do things differently:
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50, rotateY: -90 }}
-              animate={isInView ? { opacity: 1, y: 0, rotateY: 0 } : {}}
-              transition={{ delay: service.delay, duration: 0.6 }}
-              whileHover={{ 
-                y: -15,
-                rotateY: 5,
-                transition: { duration: 0.3 }
-              }}
-              className="group relative perspective-1000"
-            >
-              {/* Glow Effect */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                className={`absolute -inset-1 ${service.color} rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500`}
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-start lg:items-stretch">
+          {/* Points */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="relative"
+          >
+            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-10 shadow-xl border border-primary-100 h-full">
+              <div className="absolute -top-1 left-8 w-24 h-1 bg-gold-500 rounded-full" />
+
+              <ul className="space-y-6">
+                {points.map((point) => (
+                  <li key={point.title} className="flex gap-4">
+                    <div className="mt-1 shrink-0">
+                      <CheckCircle2 className="w-6 h-6 text-accent-600" aria-hidden="true" />
+                    </div>
+                    <p className="text-primary-700 leading-relaxed text-base md:text-lg">
+                      <span className="font-bold text-primary-800">{point.title}</span>{' '}
+                      {point.body}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+
+          {/* Image */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.15, duration: 0.6 }}
+            className="h-full"
+          >
+            <div className="h-full bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-gold-300 overflow-hidden">
+              <img
+                // TODO: replace with the approved image for this section
+                src="/images/inclusive-employment.jpeg"
+                alt="What makes us different"
+                className="w-full h-64 sm:h-80 lg:h-full object-cover"
+                loading="lazy"
               />
-              
-              <div className="relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 h-full border border-gold-100">
-                {/* Icon Container */}
-                <motion.div
-                  whileHover={{ 
-                    scale: 1.1,
-                    rotate: [0, -10, 10, -10, 0],
-                  }}
-                  transition={{ duration: 0.5 }}
-                  className="mb-6"
-                >
-                  <div className={`w-20 h-20 ${service.color} rounded-2xl flex items-center justify-center shadow-lg mx-auto`}>
-                    <service.icon className="w-10 h-10 text-white" />
-                  </div>
-                </motion.div>
-
-                <h3 className="text-xl font-bold mb-4 text-primary-800 text-center">
-                  {service.title}
-                </h3>
-                <p className="text-primary-700 text-center leading-relaxed">
-                  {service.description}
-                </p>
-
-                {/* Animated Corner Accent */}
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileHover={{ scale: 1 }}
-                  className={`absolute top-4 right-4 w-3 h-3 ${service.color} rounded-full`}
-                />
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileHover={{ scale: 1 }}
-                  transition={{ delay: 0.1 }}
-                  className={`absolute bottom-4 left-4 w-3 h-3 ${service.color} rounded-full`}
-                />
-              </div>
-            </motion.div>
-          ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

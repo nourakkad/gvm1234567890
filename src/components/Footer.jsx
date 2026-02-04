@@ -6,8 +6,19 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   const links = {
-    'Quick Links': ['Home', 'About', 'Our Work', 'Impact'],
-    'Get Involved': ['Donate', 'Volunteer', 'Submit A Proposal', 'Become a Mentor'],
+    'Quick Links': [
+      { label: 'Home', href: '#home' },
+      { label: 'About', href: '#about' },
+      { label: 'Our Work', href: '#our-work' },
+      { label: 'Impact', href: '#impact' },
+      { label: 'How We Work', href: '#how-we-work' },
+      { label: 'What We Offer', href: '#what-we-offer' },
+    ],
+    'Get Involved': [
+      { label: 'Submit A Proposal', href: '#submit-a-proposal' },
+      { label: 'For Donors and Partners', href: '#for-donors-and-partners' },
+      { label: 'Contact', href: '#contact' },
+    ],
   }
 
   return (
@@ -44,25 +55,14 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand Section */}
           <div className="md:col-span-2">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center space-x-3 mb-6"
-            >
-              <motion.img
+            <div className="flex items-center space-x-3 mb-6 select-none">
+              <img
                 src="/gvm.png"
                 alt="Global Visionary Minds"
-                className="w-12 h-12"
-                animate={{
-                  rotate: 360,
-                }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
+                className="w-14 h-14 object-contain"
               />
               <span className="text-2xl font-bold">Global Visionary Minds</span>
-            </motion.div>
+            </div>
             
             <p className="text-primary-100 mb-6 leading-relaxed">
               Empowering change through community initiatives. We partner with grassroots 
@@ -90,23 +90,23 @@ const Footer = () => {
           </div>
 
           {/* Links Sections */}
-          {Object.entries(links).map(([title, items], index) => (
+          {Object.entries(links).map(([title, items]) => (
             <div key={title}>
               <h3 className="text-lg font-bold mb-4 text-accent-400">{title}</h3>
               <ul className="space-y-3">
                 {items.map((item, itemIndex) => (
                   <motion.li
-                    key={item}
+                    key={item.href}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: itemIndex * 0.1 }}
                     whileHover={{ x: 5 }}
                   >
                     <a 
-                      href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                      className="text-primary-100 hover:text-accent-400 transition-colors"
+                      href={item.href}
+                      className="text-primary-100 hover:text-accent-400 transition-colors break-words"
                     >
-                      {item}
+                      {item.label}
                     </a>
                   </motion.li>
                 ))}
