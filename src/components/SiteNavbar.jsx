@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const SiteNavbar = ({ scrolled }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -17,13 +18,15 @@ const SiteNavbar = ({ scrolled }) => {
   }, [isOpen])
 
   const menuItems = [
-    { label: 'Home', href: '#home' },
-    { label: 'About Us', href: '#about' },
-    { label: 'What We Support', href: '#what-we-support' },
-    { label: 'Our Approach', href: '#our-approach' },    
-    { label: 'Submit a Proposal', href: '#submit-a-proposal' },  
-    { label: 'Contact', href: '#contact' },
+    { label: 'Home', to: '/' },
+    { label: 'About Us', to: '/about' },
+    { label: 'What We Support', to: '/what-we-support' },
+    { label: 'Our Approach', to: '/our-approach' },    
+    { label: 'Submit a Proposal', to: '/submit-a-proposal' },  
+    { label: 'Contact', to: '/contact' },
     ]
+
+  const MotionLink = motion(Link)
 
   return (
     <motion.nav
@@ -36,13 +39,13 @@ const SiteNavbar = ({ scrolled }) => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-24">
+        <div className="flex justify-between items-center h-20 md:h-24">
           {/* Logo */}
           <div className="flex items-center gap-3 select-none">
             <img
               src="/gvm.png"
               alt="Global Visionary Minds"
-              className="w-16 h-16 md:w-20 md:h-20 object-contain shrink-0"
+              className="w-14 h-14 md:w-20 md:h-20 object-contain shrink-0"
             />
             <span className="text-xl md:text-2xl font-bold text-primary-700">
               Global Visionary Minds
@@ -52,9 +55,9 @@ const SiteNavbar = ({ scrolled }) => {
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
             {menuItems.map((item, index) => (
-              <motion.a
-                key={item.href}
-                href={item.href}
+              <MotionLink
+                key={item.to}
+                to={item.to}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -65,7 +68,7 @@ const SiteNavbar = ({ scrolled }) => {
                 <motion.span
                   className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold-300 group-hover:w-full transition-all duration-300"
                 />
-              </motion.a>
+              </MotionLink>
             ))}
           </div>
 
@@ -98,7 +101,7 @@ const SiteNavbar = ({ scrolled }) => {
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation"
-            className="fixed inset-0 md:hidden flex items-start justify-center pt-28 px-4"
+            className="fixed inset-0 md:hidden flex items-start justify-center pt-24 px-4"
           >
             <div className="w-full max-w-sm rounded-2xl shadow-2xl border border-primary-100 overflow-hidden">
               <div className="bg-gradient-to-br from-primary-50 via-accent-50 to-primary-50 backdrop-blur-xl">
@@ -115,14 +118,14 @@ const SiteNavbar = ({ scrolled }) => {
                 <nav className="p-3">
                   <ul className="space-y-2">
                     {menuItems.map((item) => (
-                      <li key={item.href}>
-                        <a
-                          href={item.href}
+                      <li key={item.to}>
+                        <Link
+                          to={item.to}
                           onClick={() => setIsOpen(false)}
                           className="block w-full text-left px-5 py-4 rounded-xl bg-white/70 hover:bg-white text-primary-800 font-medium border border-primary-100"
                         >
                           {item.label}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>

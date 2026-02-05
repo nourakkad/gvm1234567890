@@ -1,22 +1,23 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Sparkles, Mail, MapPin } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const SiteFooter = () => {
   const currentYear = new Date().getFullYear()
 
   const links = {
     'Quick Links': [
-      { label: 'Home', href: '#home' },
-      { label: 'About Us', href: '#about' },
-      { label: 'What We Support', href: '#what-we-support' },
-      { label: 'Our Approach', href: '#our-approach' },
-      { label: 'Submit a Proposal', href: '#submit-a-proposal' },
-      { label: 'Contact', href: '#contact' },
+      { label: 'Home', to: '/' },
+      { label: 'About Us', to: '/about' },
+      { label: 'What We Support', to: '/what-we-support' },
+      { label: 'Our Approach', to: '/our-approach' },
+      { label: 'Submit a Proposal', to: '/submit-a-proposal' },
+      { label: 'Contact', to: '/contact' },
     ],
     'Get Involved': [
-      { label: 'Submit a Proposal', href: '#submit-a-proposal' },
-      { label: 'Contact', href: '#contact' },
+      { label: 'Submit a Proposal', to: '/submit-a-proposal' },
+      { label: 'Contact', to: '/contact' },
     ],
   }
 
@@ -58,7 +59,7 @@ const SiteFooter = () => {
               <img
                 src="/gvm.png"
                 alt="Global Visionary Minds"
-                className="w-16 h-16 md:w-20 md:h-20 object-contain"
+                className="w-14 h-14 md:w-20 md:h-20 object-contain"
               />
               <span className="text-2xl font-bold">Global Visionary Minds</span>
             </div>
@@ -95,18 +96,18 @@ const SiteFooter = () => {
               <ul className="space-y-3">
                 {items.map((item, itemIndex) => (
                   <motion.li
-                    key={item.href}
+                    key={item.to}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: itemIndex * 0.1 }}
                     whileHover={{ x: 5 }}
                   >
-                    <a 
-                      href={item.href}
+                    <Link
+                      to={item.to}
                       className="text-primary-100 hover:text-accent-400 transition-colors break-words"
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   </motion.li>
                 ))}
               </ul>

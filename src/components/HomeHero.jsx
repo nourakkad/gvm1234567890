@@ -4,7 +4,7 @@ const HomeHero = () => {
   return (
     <section
       id="home"
-      className="relative overflow-hidden pt-24 md:pt-28 scroll-mt-24"
+      className="relative overflow-hidden scroll-mt-24 min-h-[calc(100vh-5rem)] md:min-h-[calc(100vh-6rem)]"
       aria-label="Home"
     >
       {/* Subtle brand background (static, not distracting) */}
@@ -19,7 +19,7 @@ const HomeHero = () => {
           <div className="space-y-7">
 
 
-            <h1 className="mt-11 text-primary-900 text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">
+            <h1 className="text-primary-900 text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">
               Big change starts with small, brave steps.
             </h1>
 
