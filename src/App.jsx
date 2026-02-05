@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Mission from './components/Mission'
-import Services from './components/Services'
-import Projects from './components/Projects'
-import Testimonial from './components/Testimonial'
-import Offer from './components/Offer'
-import SubmitProposal from './components/SubmitProposal'
-import DonorsPartners from './components/DonorsPartners'
-import GetInvolved from './components/GetInvolved'
-import Footer from './components/Footer'
+import SiteNavbar from './components/SiteNavbar'
+import HomeHero from './components/HomeHero'
+import AboutUs from './components/AboutUs'
+import OurApproach from './components/OurApproach'
+import WhatWeSupport from './components/WhatWeSupport'
+import ProposalForm from './components/ProposalForm'
+import ContactSection from './components/ContactSection'
+import SiteFooter from './components/SiteFooter'
 
 function App() {
   const [scrolled, setScrolled] = useState(false)
@@ -24,17 +21,14 @@ function App() {
 
   return (
     <div className="min-h-screen overflow-x-hidden">
-      <Navbar scrolled={scrolled} />
-      <Hero />
-      <Mission />
-      <Services />
-      <Projects />
-      <Testimonial />
-      <Offer />      
-      <SubmitProposal />
-      <DonorsPartners />
-      <GetInvolved />
-      <Footer />
+      <SiteNavbar scrolled={scrolled} />
+      <HomeHero />
+      <AboutUs />     
+      <WhatWeSupport />
+      <OurApproach />     
+      <ProposalForm />
+      <ContactSection />
+      <SiteFooter />
     </div>
   )
 }

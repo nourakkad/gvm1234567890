@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
-import { Target, Users, Eye } from 'lucide-react'
+import { Target, Users, Eye, CheckCircle2 } from 'lucide-react'
 
-const Mission = () => {
+const AboutUs = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [expandedTeam, setExpandedTeam] = useState({})
@@ -18,7 +18,7 @@ const Mission = () => {
         grow into clear, fundable, and responsible initiatives.
       </p>
       <p>
-        We don&apos;t believe change has to be big to be meaningful. We believe
+        We don’t believe change has to be big to be meaningful. We believe
         it has to be honest, relevant, and grounded in the reality of the
         people it aims to serve.
       </p>
@@ -44,6 +44,25 @@ const Mission = () => {
       <p>We work closely with people, not templates.</p>
     </div>
   )
+
+  const whatMakesUsDifferentPoints = [
+    {
+      title: 'We start early.',
+      body: 'We work with ideas before they are polished or packaged, when guidance matters most.',
+    },
+    {
+      title: 'We stay honest.',
+      body: "We don’t claim impact before it exists. We build it step by step.",
+    },
+    {
+      title: 'We stay close.',
+      body: 'Decisions are shaped by local context, not distant assumptions.',
+    },
+    {
+      title: 'We value transparency.',
+      body: 'We are clear about what we fund, how decisions are made, and what we learn along the way.',
+    },
+  ]
 
   const teamMembers = [
     {
@@ -241,11 +260,58 @@ const Mission = () => {
               </div>
             </div>
           </motion.div>
+
+          {/* What Makes Us Different */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.35, duration: 0.6 }}
+            className="mt-10 md:mt-12"
+          >
+            <div className="grid lg:grid-cols-12 gap-8 md:gap-10 items-start">
+              <div className="lg:col-span-7">
+                <h3 className="text-3xl md:text-4xl font-bold text-primary-700">
+                  What Makes Us Different
+                </h3>
+                <p className="mt-4 text-primary-700 leading-relaxed text-base md:text-lg">
+                  There are many organizations supporting social change. This is how we try to do things differently:
+                </p>
+
+                <div className="mt-6 bg-white/80 backdrop-blur-sm rounded-3xl p-6 sm:p-8 shadow-xl border border-primary-100">
+                  <ul className="space-y-6">
+                    {whatMakesUsDifferentPoints.map((point) => (
+                      <li key={point.title} className="flex gap-4">
+                        <div className="mt-1 shrink-0">
+                          <CheckCircle2 className="w-6 h-6 text-accent-600" aria-hidden="true" />
+                        </div>
+                        <p className="text-primary-700 leading-relaxed text-base md:text-lg">
+                          <span className="font-bold text-primary-800">{point.title}</span>{' '}
+                          {point.body}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="lg:col-span-5">
+                <div className="mt-8 sm:mt-10 lg:mt-12 rounded-3xl bg-white/80 backdrop-blur-sm border border-gold-300 shadow-2xl overflow-hidden">
+                  <img
+                    // TODO: replace with the approved image for this section
+                    src="/images/inclusive-employment.jpeg"
+                    alt="What makes us different"
+                    className="w-full h-64 sm:h-80 lg:h-[420px] object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
   )
 }
 
-export default Mission
+export default AboutUs
 

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
-const Projects = () => {
+const WhatWeSupport = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const areas = [
@@ -56,7 +56,7 @@ const Projects = () => {
   ]
 
   return (
-    <section id="impact" ref={ref} className="py-14 md:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden scroll-mt-24">
+    <section id="what-we-support" ref={ref} className="py-14 md:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden scroll-mt-24">
       {/* Soft background */}
       <div className="absolute inset-0 bg-primary-50" />
       <div className="pointer-events-none absolute inset-0">
@@ -76,7 +76,7 @@ const Projects = () => {
             className="inline-block px-6 py-2 bg-primary-700 rounded-full text-white font-semibold mb-4 border border-gold-300 shadow-sm"
           >
             <span className="text-gold-500 mr-2" aria-hidden="true">★</span>
-            Impact Areas
+            What We Support
           </motion.span>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary-700">
             Turning Ideas Into Action
@@ -109,7 +109,7 @@ const Projects = () => {
                   <img
                     // TODO: replace with the approved “market/food systems” image
                     src="/images/lady-cafe.jpeg"
-                    alt="Community and local livelihoods"
+                    alt="Urban food systems"
                     className="w-full h-56 sm:h-72 object-cover"
                     loading="lazy"
                   />
@@ -129,7 +129,7 @@ const Projects = () => {
                   <img
                     // TODO: replace with the approved “hydroponics/greenhouse” image
                     src="/images/aqua-farms.jpeg"
-                    alt="Urban food systems"
+                    alt="Community and local livelihoods"
                     className="w-full h-52 sm:h-64 object-cover"
                     loading="lazy"
                   />
@@ -217,5 +217,5 @@ const Projects = () => {
   )
 }
 
-export default Projects
+export default WhatWeSupport
 

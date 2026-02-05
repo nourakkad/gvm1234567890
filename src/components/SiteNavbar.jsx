@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
-const Navbar = ({ scrolled }) => {
+const SiteNavbar = ({ scrolled }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
@@ -18,12 +18,12 @@ const Navbar = ({ scrolled }) => {
 
   const menuItems = [
     { label: 'Home', href: '#home' },
-    { label: 'About', href: '#about' },
-    { label: 'Our Work', href: '#our-work' },
-    { label: 'Impact', href: '#impact' },
+    { label: 'About Us', href: '#about' },
+    { label: 'What We Support', href: '#what-we-support' },
+    { label: 'Our Approach', href: '#our-approach' },    
+    { label: 'Submit a Proposal', href: '#submit-a-proposal' },  
     { label: 'Contact', href: '#contact' },
-    { label: 'Submit A Proposal', href: '#submit-a-proposal' },
-  ]
+    ]
 
   return (
     <motion.nav
@@ -36,13 +36,13 @@ const Navbar = ({ scrolled }) => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-24">
           {/* Logo */}
           <div className="flex items-center gap-3 select-none">
             <img
               src="/gvm.png"
               alt="Global Visionary Minds"
-              className="w-14 h-14 md:w-16 md:h-16 object-contain shrink-0"
+              className="w-16 h-16 md:w-20 md:h-20 object-contain shrink-0"
             />
             <span className="text-xl md:text-2xl font-bold text-primary-700">
               Global Visionary Minds
@@ -136,5 +136,5 @@ const Navbar = ({ scrolled }) => {
   )
 }
 
-export default Navbar
+export default SiteNavbar
 

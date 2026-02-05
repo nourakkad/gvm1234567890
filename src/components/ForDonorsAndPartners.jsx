@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
-const DonorsPartners = () => {
+const ForDonorsAndPartners = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
@@ -72,5 +72,5 @@ const DonorsPartners = () => {
   )
 }
 
-export default DonorsPartners
+export default ForDonorsAndPartners
 

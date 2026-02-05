@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Mail } from 'lucide-react'
 
-const GetInvolved = () => {
+const ContactSection = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
@@ -65,5 +65,5 @@ const GetInvolved = () => {
   )
 }
 
-export default GetInvolved
+export default ContactSection
 

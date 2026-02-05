@@ -2,21 +2,20 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Sparkles, Mail, MapPin } from 'lucide-react'
 
-const Footer = () => {
+const SiteFooter = () => {
   const currentYear = new Date().getFullYear()
 
   const links = {
     'Quick Links': [
       { label: 'Home', href: '#home' },
-      { label: 'About', href: '#about' },
-      { label: 'Our Work', href: '#our-work' },
-      { label: 'Impact', href: '#impact' },
-      { label: 'How We Work', href: '#how-we-work' },
-      { label: 'What We Offer', href: '#what-we-offer' },
+      { label: 'About Us', href: '#about' },
+      { label: 'What We Support', href: '#what-we-support' },
+      { label: 'Our Approach', href: '#our-approach' },
+      { label: 'Submit a Proposal', href: '#submit-a-proposal' },
+      { label: 'Contact', href: '#contact' },
     ],
     'Get Involved': [
-      { label: 'Submit A Proposal', href: '#submit-a-proposal' },
-      { label: 'For Donors and Partners', href: '#for-donors-and-partners' },
+      { label: 'Submit a Proposal', href: '#submit-a-proposal' },
       { label: 'Contact', href: '#contact' },
     ],
   }
@@ -59,7 +58,7 @@ const Footer = () => {
               <img
                 src="/gvm.png"
                 alt="Global Visionary Minds"
-                className="w-14 h-14 object-contain"
+                className="w-16 h-16 md:w-20 md:h-20 object-contain"
               />
               <span className="text-2xl font-bold">Global Visionary Minds</span>
             </div>
@@ -169,5 +168,5 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default SiteFooter
 

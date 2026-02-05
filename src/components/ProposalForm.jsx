@@ -7,7 +7,7 @@ const FORM_URL =
 
 const EMBED_URL = `${FORM_URL}?embedded=true`
 
-const SubmitProposal = () => {
+const ProposalForm = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
   const [isFullscreen, setIsFullscreen] = useState(false)
@@ -73,6 +73,25 @@ const SubmitProposal = () => {
         <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-8 md:gap-10 items-start">
           {/* Left: short intro + button */}
           <div className="lg:col-span-8">
+            <div className="mb-6 md:mb-8 bg-white/80 backdrop-blur-sm rounded-3xl p-6 sm:p-8 shadow-xl border border-primary-100">
+             
+
+              <div className=" space-y-4 text-primary-700 leading-relaxed text-base md:text-lg">
+                <p>
+                  We welcome ideas at any stage of development, even if they are still
+                  emerging or not fully structured. We are interested in hearing from
+                  individuals and groups who are thinking about solutions for their
+                  communities, not only from those who already have a fully developed
+                  project.
+                </p>
+                <p>
+                  If you have an idea that aligns with GVM’s spirit and approach, we
+                  invite you to take a few minutes to fill in the form below. It is
+                  short and clear, and it will help us understand your idea as a
+                  starting point for a conversation.
+                </p>
+              </div>
+            </div>
             {isMobile ? (
               <button
                 type="button"
@@ -188,5 +207,5 @@ const SubmitProposal = () => {
   )
 }
 
-export default SubmitProposal
+export default ProposalForm
 

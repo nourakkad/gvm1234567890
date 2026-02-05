@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
-const Testimonial = () => {
+const HowWeWork = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
@@ -112,5 +112,5 @@ const Testimonial = () => {
   )
 }
 
-export default Testimonial
+export default HowWeWork
 

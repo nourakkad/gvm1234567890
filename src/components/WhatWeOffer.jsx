@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
-const Offer = () => {
+const WhatWeOffer = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
@@ -82,5 +82,5 @@ const Offer = () => {
   )
 }
 
-export default Offer
+export default WhatWeOffer
 
