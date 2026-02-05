@@ -66,7 +66,7 @@ const SiteFooter = () => {
             
             <p className="text-primary-100 mb-6 leading-relaxed">
               Empowering change through community initiatives. We partner with grassroots 
-              organizations to create lasting impact in Beirut and beyond.
+              organizations to create lasting impact in The Middle East and beyond.
             </p>
 
             <div className="space-y-3">
