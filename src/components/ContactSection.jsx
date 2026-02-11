@@ -57,9 +57,10 @@ const ContactSection = () => {
 
     const elapsedMs = Date.now() - (startedAtRef.current || Date.now())
     if (elapsedMs < 1500) {
-      // Too fast to be human — treat as success to avoid tipping off bots
-      setStatus({ state: 'success', message: 'Thanks — your message has been sent.' })
-      setTimeout(() => navigate('/'), 600)
+      setStatus({
+        state: 'error',
+        message: 'Please wait a moment and try again.',
+      })
       return
     }
 

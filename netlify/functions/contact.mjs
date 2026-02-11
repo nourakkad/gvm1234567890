@@ -89,7 +89,7 @@ export async function handler(event) {
 
   // Bot trap: pretend success
   if (company) return json(200, { ok: true })
-  if (elapsedMs && elapsedMs < 1500) return json(200, { ok: true })
+  if (elapsedMs && elapsedMs < 1500) return json(400, { ok: false, error: 'Request too fast' })
 
   if (!name || !email || !subject || !message) {
     return json(400, { ok: false, error: 'Missing required fields' })
@@ -132,6 +132,15 @@ export async function handler(event) {
     auth: { user: SMTP_USER, pass: SMTP_PASS },
   })
 
+  // Helpful debug line for Netlify function logs (no secrets)
+  console.log('[contact] sending', {
+    to: CONTACT_TO_EMAIL,
+    from: CONTACT_FROM_EMAIL,
+    host: SMTP_HOST,
+    port,
+    secure,
+  })
+
   const text = [
     `Name: ${name}`,
     `Email: ${email}`,
@@ -141,17 +150,28 @@ export async function handler(event) {
   ].join('\n')
 
   try {
-    await transport.sendMail({
+    const info = await transport.sendMail({
       from: CONTACT_FROM_EMAIL,
       to: CONTACT_TO_EMAIL,
       replyTo: email,
       subject: `[GVM Contact] ${subject}`,
       text,
     })
+
+    if (Array.isArray(info.rejected) && info.rejected.length > 0) {
+      console.log('[contact] rejected', info.rejected)
+      return json(500, { ok: false, error: 'SMTP rejected the message.' })
+    }
+
+    console.log('[contact] sent', { messageId: info.messageId })
+    return json(200, { ok: true, messageId: info.messageId })
   } catch (err) {
+    console.log('[contact] send error', {
+      code: err?.code,
+      responseCode: err?.responseCode,
+      message: err?.message,
+    })
     return json(500, { ok: false, error: mapSmtpError(err) })
   }
-
-  return json(200, { ok: true })
 }
 
