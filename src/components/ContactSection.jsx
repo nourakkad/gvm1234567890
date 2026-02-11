@@ -161,10 +161,10 @@ const ContactSection = () => {
 
                 <div className="mt-4 flex justify-center">
                   <a
-                    href="mailto:info@globalvisionaryminds.com"
+                    href="mailto:contact@globalvisionaryminds.com"
                     className="inline-flex items-center justify-center px-5 sm:px-6 py-3 rounded-full bg-primary-700 text-white font-semibold shadow-lg border border-accent-400 hover:ring-2 hover:ring-accent-400 transition break-all text-sm sm:text-base"
                   >
-                    info@globalvisionaryminds.com
+                    contact@globalvisionaryminds.com
                   </a>
                 </div>
 

@@ -82,8 +82,8 @@ const SiteFooter = () => {
                 className="flex items-center space-x-3 text-primary-100"
               >
                 <Mail className="w-5 h-5 text-accent-400" />
-                <a href="mailto:globalvisionarymindsmain@gmail.com" className="text-primary-100 hover:text-accent-400 transition-colors">
-                  globalvisionarymindsmain@gmail.com
+                <a href="mailto:contact@globalvisionaryminds.com" className="text-primary-100 hover:text-accent-400 transition-colors">
+                contact@globalvisionaryminds.com
                 </a>
               </motion.div>
             </div>
