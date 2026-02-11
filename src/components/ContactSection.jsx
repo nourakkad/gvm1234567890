@@ -1,11 +1,14 @@
 import React, { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Mail } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const ContactSection = () => {
+  const navigate = useNavigate()
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const formRef = useRef(null)
+  const startedAtRef = useRef(Date.now())
 
   const [status, setStatus] = useState({ state: 'idle', message: '' }) // idle | sending | success | error
   const [values, setValues] = useState({
@@ -19,6 +22,8 @@ const ContactSection = () => {
   const isSending = status.state === 'sending'
 
   const onChange = (e) => {
+    // basic “time-on-page” bot signal
+    if (!startedAtRef.current) startedAtRef.current = Date.now()
     const { name, value } = e.target
     setValues((prev) => ({ ...prev, [name]: value }))
   }
@@ -33,6 +38,31 @@ const ContactSection = () => {
       return
     }
 
+    const email = values.email.trim()
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email.length <= 254
+    if (!emailOk) {
+      setStatus({ state: 'error', message: 'Please enter a valid email address.' })
+      return
+    }
+
+    if (values.subject.trim().length < 3) {
+      setStatus({ state: 'error', message: 'Please add a subject.' })
+      return
+    }
+
+    if (values.message.trim().length < 10) {
+      setStatus({ state: 'error', message: 'Please write a slightly longer message.' })
+      return
+    }
+
+    const elapsedMs = Date.now() - (startedAtRef.current || Date.now())
+    if (elapsedMs < 1500) {
+      // Too fast to be human — treat as success to avoid tipping off bots
+      setStatus({ state: 'success', message: 'Thanks — your message has been sent.' })
+      setTimeout(() => navigate('/'), 600)
+      return
+    }
+
     setStatus({ state: 'sending', message: 'Sending…' })
 
     try {
@@ -41,10 +71,11 @@ const ContactSection = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: values.name,
-          email: values.email,
+          email,
           subject: values.subject,
           message: values.message,
           company: values.company,
+          elapsedMs,
         }),
       })
 
@@ -67,6 +98,8 @@ const ContactSection = () => {
       setStatus({ state: 'success', message: 'Thanks — your message has been sent.' })
       setValues({ name: '', email: '', subject: '', message: '', company: '' })
       formRef.current?.reset?.()
+      startedAtRef.current = Date.now()
+      setTimeout(() => navigate('/'), 900)
     } catch (err) {
       const message =
         err instanceof Error && err.message
