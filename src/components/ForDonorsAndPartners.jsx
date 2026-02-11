@@ -56,7 +56,7 @@ const ForDonorsAndPartners = () => {
 
             {/* Right image (positioning like screenshot) */}
             <div className="md:col-span-6">
-              <div className="mt-6 md:mt-20 rounded-3xl bg-white/80 backdrop-blur-sm border border-gold-300 shadow-2xl overflow-hidden">
+              <div className="mt-6 md:mt-20 rounded-3xl bg-white/80 backdrop-blur-sm border border-accent-400 shadow-2xl overflow-hidden">
                 <img
                   src="/images/donors-partners.png"
                   alt="For donors and partners"

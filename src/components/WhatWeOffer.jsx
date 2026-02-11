@@ -34,7 +34,7 @@ const WhatWeOffer = () => {
           <div className="grid md:grid-cols-12 gap-8 md:gap-10 items-start">
             {/* Left image (positioning like screenshot) */}
             <div className="md:col-span-4">
-              <div className="mt-2 md:mt-14 rounded-3xl bg-white/80 backdrop-blur-sm border border-gold-300 shadow-2xl overflow-hidden">
+              <div className="mt-2 md:mt-14 rounded-3xl bg-white/80 backdrop-blur-sm border border-accent-400 shadow-2xl overflow-hidden">
                 <img
                   src="/images/what-we-offer.png"
                   alt="What we offer"
@@ -55,8 +55,8 @@ const WhatWeOffer = () => {
                   GVM provides{' '}
                   <span className="font-bold text-primary-800">
                     micro-grants ranging from{' '}
-                    <span className="text-gold-700">$1,000</span> to{' '}
-                    <span className="text-gold-700">$10,000</span>
+                    <span className="text-accent-400">$1,000</span> to{' '}
+                    <span className="text-accent-400">$10,000</span>
                   </span>{' '}
                   to support early-stage ideas once funding is available.
                 </p>

@@ -48,7 +48,7 @@ const HomeHero = () => {
           </div>
 
           <div className="w-full">
-            <div className="w-full max-w-md lg:max-w-none mx-auto rounded-3xl bg-white/60 backdrop-blur border border-gold-300 shadow-2xl overflow-hidden">
+            <div className="w-full max-w-md lg:max-w-none mx-auto rounded-3xl bg-white/60 backdrop-blur border border-accent-400 shadow-2xl overflow-hidden">
               <img
                 // TODO: replace with the approved Section 1 right-side image file
                 // Using an existing image so the page doesn't break.
@@ -64,7 +64,7 @@ const HomeHero = () => {
         {/* Bottom row */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-start mt-12 md:mt-16">
           <div className="w-full">
-            <div className="rounded-3xl bg-white/60 backdrop-blur border border-gold-300 shadow-2xl overflow-hidden">
+            <div className="rounded-3xl bg-white/60 backdrop-blur border border-accent-400 shadow-2xl overflow-hidden">
               <img
                 // TODO: replace with the approved Section 1 bottom image file
                 // Using an existing image so the page doesn't break.

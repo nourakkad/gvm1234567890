@@ -73,7 +73,7 @@ const WhatWeSupport = () => {
           <motion.span
             initial={{ opacity: 0, scale: 0.5 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            className="inline-block px-6 py-2 bg-primary-700 rounded-full text-white font-semibold mb-4 border border-gold-300 shadow-sm"
+            className="inline-block px-6 py-2 bg-primary-700 rounded-full text-white font-semibold mb-4 border border-accent-400 shadow-sm"
           >
             <span className="text-gold-500 mr-2" aria-hidden="true">★</span>
             What We Support
@@ -124,7 +124,7 @@ const WhatWeSupport = () => {
               transition={{ delay: 0.1, duration: 0.6 }}
               className="lg:col-span-5"
             >
-              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 sm:p-8 md:p-10 shadow-xl border border-gold-300">
+              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 sm:p-8 md:p-10 shadow-xl border border-accent-400">
                 <div className="rounded-2xl overflow-hidden border border-primary-100 shadow-lg mb-8">
                   <img
                     // TODO: replace with the approved “hydroponics/greenhouse” image
@@ -161,7 +161,7 @@ const WhatWeSupport = () => {
                     <div className="bg-white/10 backdrop-blur rounded-3xl p-6 md:p-8 border border-white/15">
                       <ul className="list-disc pl-6 space-y-4 text-white/95">
                         {areas.slice(4, 7).map((area) => (
-                          <li key={area.title} className="marker:text-gold-300">
+                          <li key={area.title} className="marker:text-accent-400">
                             <span className="font-semibold text-white">{area.title}</span>, {area.body}
                           </li>
                         ))}
@@ -184,7 +184,7 @@ const WhatWeSupport = () => {
                     <div className="bg-white/10 backdrop-blur rounded-3xl p-6 md:p-8 border border-white/15">
                       <ul className="list-disc pl-6 space-y-4 text-white/95">
                         {areas.slice(7, 12).map((area) => (
-                          <li key={area.title} className="marker:text-gold-300">
+                          <li key={area.title} className="marker:text-accent-400">
                             <span className="font-semibold text-white">{area.title}</span>, {area.body}
                           </li>
                         ))}

@@ -58,7 +58,7 @@ const ProposalForm = () => {
           <motion.span
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            className="inline-block px-6 py-2 bg-primary-700 rounded-full text-white font-semibold mb-4 border border-gold-300 shadow-sm"
+            className="inline-block px-6 py-2 bg-primary-700 rounded-full text-white font-semibold mb-4 border border-accent-400 shadow-sm"
           >
             <span className="text-gold-500 mr-2" aria-hidden="true">
               ★
@@ -96,7 +96,7 @@ const ProposalForm = () => {
               <button
                 type="button"
                 onClick={() => setIsFullscreen(true)}
-                className="w-full text-left rounded-3xl bg-white shadow-2xl overflow-hidden ring-1 ring-gold-300"
+                className="w-full text-left rounded-3xl bg-white shadow-2xl overflow-hidden ring-1 ring-accent-400"
                 aria-label="Open the form full-screen"
               >
                 <div className="relative">
@@ -113,14 +113,14 @@ const ProposalForm = () => {
                   />
 
                   <div className="absolute inset-0 flex items-end justify-center p-4 bg-gradient-to-t from-white/95 via-white/35 to-transparent">
-                    <span className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary-700 text-white font-semibold shadow-lg border border-gold-300">
+                    <span className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary-700 text-white font-semibold shadow-lg border border-accent-400">
                       Tap to open and fill the form
                     </span>
                   </div>
                 </div>
               </button>
             ) : (
-              <div className="rounded-3xl bg-white shadow-2xl overflow-hidden ring-1 ring-gold-300">
+              <div className="rounded-3xl bg-white shadow-2xl overflow-hidden ring-1 ring-accent-400">
                 <iframe
                   title="Call For Ideas (Google Form)"
                   src={EMBED_URL}
@@ -154,7 +154,7 @@ const ProposalForm = () => {
                 href={FORM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary-700 text-white font-semibold shadow-lg border border-gold-300 hover:ring-2 hover:ring-gold-300 transition"
+                className="mt-6 inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary-700 text-white font-semibold shadow-lg border border-accent-400 hover:ring-2 hover:ring-accent-400 transition"
               >
                 Open the form
                 <ExternalLink className="w-5 h-5 text-gold-300" />
@@ -177,13 +177,13 @@ const ProposalForm = () => {
           aria-modal="true"
           aria-label="Google form (full screen)"
         >
-          <div className="h-full w-full rounded-3xl bg-white overflow-hidden ring-1 ring-gold-300 shadow-2xl flex flex-col">
+          <div className="h-full w-full rounded-3xl bg-white overflow-hidden ring-1 ring-accent-400 shadow-2xl flex flex-col">
             <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-primary-100">
               <p className="font-semibold text-primary-800">Call For Ideas</p>
               <button
                 type="button"
                 onClick={() => setIsFullscreen(false)}
-                className="px-4 py-2 rounded-full bg-primary-700 text-white font-semibold border border-gold-300"
+                className="px-4 py-2 rounded-full bg-primary-700 text-white font-semibold border border-accent-400"
               >
                 Close
               </button>

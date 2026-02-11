@@ -120,7 +120,7 @@ const SiteFooter = () => {
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           transition={{ duration: 1 }}
-          className="h-px bg-gold-500/50 mb-8"
+          className="h-px bg-accent-400/50 mb-8"
         />
 
         {/* Bottom Section */}

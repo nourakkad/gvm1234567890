@@ -106,8 +106,9 @@ const AboutUs = () => {
           <motion.span
             initial={{ opacity: 0, scale: 0.5 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            className="inline-block px-6 py-2 bg-primary-700 rounded-full text-white font-semibold mb-4 border border-gold-300 shadow-sm"
+            className="inline-block px-6 py-2 bg-primary-700 rounded-full text-white font-semibold mb-4 border border-accent-400 shadow-sm"
           >
+            <span className="text-gold-500 mr-2" aria-hidden="true">★</span>
             About Us
           </motion.span>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary-700">
@@ -125,14 +126,14 @@ const AboutUs = () => {
               className="group relative"
             >
               <div className="relative h-full bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-primary-100 hover:shadow-2xl transition-all duration-300">
-                <div className="absolute -top-1 left-8 w-24 h-1 bg-gold-500 rounded-full" />
+                <div className="absolute -top-1 left-8 w-24 h-1 bg-accent-400 rounded-full" />
                 <div className="flex items-center justify-center mb-6">
                   <div className="w-14 h-14 bg-primary-600 rounded-2xl flex items-center justify-center shadow-lg">
                     <Target className="w-7 h-7 text-white" />
                   </div>
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-primary-800 text-center">
-                  <span className="border-b-4 border-gold-500 pb-1">Our Mission</span>
+                  <span className="border-b-4 border-accent-400 pb-1">Our Mission</span>
                 </h3>
                 <div className="text-primary-700 leading-relaxed">{mission}</div>
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary-600 rounded-b-3xl" />
@@ -146,14 +147,14 @@ const AboutUs = () => {
               className="group relative"
             >
               <div className="relative h-full bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-primary-100 hover:shadow-2xl transition-all duration-300">
-                <div className="absolute -top-1 left-8 w-24 h-1 bg-gold-500 rounded-full" />
+                <div className="absolute -top-1 left-8 w-24 h-1 bg-accent-400 rounded-full" />
                 <div className="flex items-center justify-center mb-6">
                   <div className="w-14 h-14 bg-accent-600 rounded-2xl flex items-center justify-center shadow-lg">
                     <Eye className="w-7 h-7 text-white" />
                   </div>
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-primary-800 text-center">
-                  <span className="border-b-4 border-gold-500 pb-1">Our Vision</span>
+                  <span className="border-b-4 border-accent-400 pb-1">Our Vision</span>
                 </h3>
                 <div className="text-primary-700 leading-relaxed">{vision}</div>
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-accent-600 rounded-b-3xl" />
@@ -169,14 +170,14 @@ const AboutUs = () => {
             className="mt-8 md:mt-10"
           >
             <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-10 shadow-xl border border-primary-100">
-              <div className="absolute -top-1 left-8 w-24 h-1 bg-gold-500 rounded-full" />
+              <div className="absolute -top-1 left-8 w-24 h-1 bg-accent-400 rounded-full" />
               <div className="flex items-center justify-center mb-6">
                 <div className="w-14 h-14 bg-primary-600 rounded-2xl flex items-center justify-center shadow-lg">
                   <Users className="w-7 h-7 text-white" />
                 </div>
               </div>
               <h3 className="text-2xl md:text-3xl font-bold mb-4 text-primary-800 text-center">
-                <span className="border-b-4 border-gold-500 pb-1">Who We Are</span>
+                <span className="border-b-4 border-accent-400 pb-1">Who We Are</span>
               </h3>
               <div className="text-primary-700 leading-relaxed max-w-3xl mx-auto">
                 {whoWeAre}
@@ -295,7 +296,7 @@ const AboutUs = () => {
               </div>
 
               <div className="lg:col-span-5">
-                <div className="mt-8 sm:mt-10 lg:mt-12 rounded-3xl bg-white/80 backdrop-blur-sm border border-gold-300 shadow-2xl overflow-hidden">
+                <div className="mt-8 sm:mt-10 lg:mt-12 rounded-3xl bg-white/80 backdrop-blur-sm border border-accent-400 shadow-2xl overflow-hidden">
                   <img
                     // TODO: replace with the approved image for this section
                     src="/images/inclusive-employment.jpeg"

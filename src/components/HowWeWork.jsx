@@ -77,7 +77,7 @@ const HowWeWork = () => {
             transition={{ delay: 0.15, duration: 0.6 }}
             className="lg:col-span-5"
           >
-            <div className="mt-8 sm:mt-10 lg:mt-20 rounded-3xl bg-white/80 backdrop-blur-sm border border-gold-300 shadow-2xl overflow-hidden">
+            <div className="mt-8 sm:mt-10 lg:mt-20 rounded-3xl bg-white/80 backdrop-blur-sm border border-accent-400 shadow-2xl overflow-hidden">
               <img
                 // TODO: replace with the approved image for this section
                 src="/images/innovation-hub.jpeg"

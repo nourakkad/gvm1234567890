@@ -54,7 +54,7 @@ const OurApproach = () => {
             <motion.span
               initial={{ opacity: 0, scale: 0.5 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              className="inline-block px-6 py-2 bg-primary-700 rounded-full text-white font-semibold mb-4 border border-gold-300 shadow-sm"
+              className="inline-block px-6 py-2 bg-primary-700 rounded-full text-white font-semibold mb-4 border border-accent-400 shadow-sm"
             >
               <span className="text-gold-500 mr-2" aria-hidden="true">★</span>
               Our Approach
@@ -90,7 +90,7 @@ const OurApproach = () => {
             transition={{ delay: 0.15, duration: 0.6 }}
             className="lg:col-span-5"
           >
-            <div className="mt-8 sm:mt-10 lg:mt-20 rounded-3xl bg-white/80 backdrop-blur-sm border border-gold-300 shadow-2xl overflow-hidden">
+            <div className="mt-8 sm:mt-10 lg:mt-20 rounded-3xl bg-white/80 backdrop-blur-sm border border-accent-400 shadow-2xl overflow-hidden">
               <img
                 // TODO: replace with the approved image for this section
                 src="/images/innovation-hub.jpeg"
@@ -111,7 +111,7 @@ const OurApproach = () => {
         >
           <div className="grid md:grid-cols-12 gap-8 md:gap-10 items-start">
             <div className="md:col-span-4">
-              <div className="mt-2 md:mt-14 rounded-3xl bg-white/80 backdrop-blur-sm border border-gold-300 shadow-2xl overflow-hidden">
+              <div className="mt-2 md:mt-14 rounded-3xl bg-white/80 backdrop-blur-sm border border-accent-400 shadow-2xl overflow-hidden">
                 <img
                   src="/images/what-we-offer.png"
                   alt="What we offer"
@@ -131,8 +131,8 @@ const OurApproach = () => {
                   GVM provides{' '}
                   <span className="font-bold text-primary-800">
                     micro-grants ranging from{' '}
-                    <span className="text-gold-700">$1,000</span> to{' '}
-                    <span className="text-gold-700">$10,000</span>
+                    <span className="text-accent-400">$1,000</span> to{' '}
+                    <span className="text-accent-400">$10,000</span>
                   </span>{' '}
                   to support early-stage ideas once funding is available.
                 </p>
@@ -190,7 +190,7 @@ const OurApproach = () => {
             </div>
 
             <div className="md:col-span-6">
-              <div className="mt-6 md:mt-20 rounded-3xl bg-white/80 backdrop-blur-sm border border-gold-300 shadow-2xl overflow-hidden">
+              <div className="mt-6 md:mt-20 rounded-3xl bg-white/80 backdrop-blur-sm border border-accent-400 shadow-2xl overflow-hidden">
                 <img
                   src="/images/donors-partners.png"
                   alt="For donors and partners"
