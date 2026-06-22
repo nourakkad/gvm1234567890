@@ -133,20 +133,22 @@ const SiteFooter = () => {
             © {currentYear} Global Visionary Minds. All rights reserved.
           </motion.p>
 
-          <motion.a
+          <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            href="https://www.elyptek.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block"
+            className="text-primary-100 text-sm"
           >
-              <img
-              src="/ELYPTEK.png"
-              alt="ELY PTEK"
-              className="h-[50px] md:h-12 object-contain"
-              />
-          </motion.a>
+            Powered by{' '}
+            <a
+              href="https://www.elyptek.com"
+              target="_blank"
+              rel="noopener noreferrer author"
+              title="Website designed and developed by Elyptek"
+              className="font-semibold text-[#FF6A00] hover:text-[#FF8533] transition-colors"
+            >
+              Elyptek™
+            </a>
+          </motion.p>
         </div>
       </div>
 
